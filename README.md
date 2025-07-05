@@ -6,7 +6,7 @@
 
 ## 📦 How to Use:
 ```bash
-g++ -std=c++17 src/jupitercc.cpp -o jupitercc
+g++ -std=c++23 src/jupitercc.cpp -o jupitercc
 ./jupitercc examples/hello.jupiter
 ```
 
