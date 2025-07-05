@@ -1,0 +1,18 @@
+# Arquivos de build do CMake
+build/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+compile_commands.json
+
+# Arquivos gerados pelo compilador
+*.o
+*.out
+*.out.cpp
+jupitercc
+
+# Arquivos de IDEs
+.vscode/
+.idea/
+*.swp
+*~

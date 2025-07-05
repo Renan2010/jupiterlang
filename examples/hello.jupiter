@@ -1,2 +1,5 @@
-let foo = 42;
-print(foo);
+import iostream
+
+fn main() {
+    print("Ola mundo");
+}
