@@ -29,7 +29,7 @@ Follow the steps below to build the `jupitercc` compiler and run your first prog
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/jupiterlang.git
+    git clone https://github.com/Renan2010/jupiterlang.git
     cd jupiterlang
     ```
 
