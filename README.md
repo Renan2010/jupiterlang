@@ -1,31 +1,41 @@
-# 🚀 Júpiterlang (jupiterlang)
-
-![Language](https://img.shields.io/badge/language-C%2B%2B23-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg) <!-- Change to your actual license -->
-
-**Júpiterlang** is a modern, memory-safe programming language that transpiles directly to high-performance C++23. It achieves memory safety by **generating C++ code that leverages smart pointers** (like `std::unique_ptr` and `std::shared_ptr`), abstracting away manual memory management for the developer.
+<div align="center">
+  <h1>Júpiterlang</h1>
+  <p><strong>A memory-safe programming language that speaks modern C++.</strong></p>
+  
+  <p>
+    <img src="https://img.shields.io/badge/language-C%2B%2B23-blue.svg" alt="Language C++23"/>
+    <a href="https://github.com/Renan2010/jupiterlang/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License MIT"/></a>
+  </p>
+</div>
 
 ---
 
-## ✨ Key Features
+Júpiterlang is a modern systems programming language designed to combine the performance of C++ with guaranteed memory safety. It achieves this by transpiling its high-level, clean syntax directly into high-performance, readable C++23.
 
-*   🔐 **Safe by Default:** Leverages C++ smart pointers (`std::unique_ptr`, `std::shared_ptr`) to provide automatic memory management and prevent common memory-related bugs like dangling pointers and memory leaks.
-*   🔄 **Transpiles to Modern C++:** Generates clean, readable C++23 code, allowing seamless integration with existing C++ projects and build systems.
-*   🎨 **Minimal & Modern Syntax:** Inspired by languages like Rust and C++, focusing on readability and developer experience.
-*   🌱 **Self-Hosting Goal:** The long-term vision is for the `jupitercc` compiler to be written in Júpiterlang itself.
+The core principle is **safety by abstraction**: Júpiterlang automatically generates C++ code that leverages smart pointers (`std::unique_ptr`, `std::shared_ptr`), freeing the developer from manual memory management and eliminating entire classes of bugs like dangling pointers and memory leaks.
+
+## 🤔 Why Júpiterlang?
+
+| Feature | Description |
+| :--- | :--- |
+| 🔐 **Memory-Safe by Design** | No more `new`/`delete`. The compiler manages memory for you using C++'s robust smart pointers, preventing memory leaks and use-after-free errors. |
+| 🚀 **High-Performance C++ Core** | Get the raw speed of C++23 without the overhead of a garbage collector. Ideal for performance-critical applications like game engines, servers, and OS development. |
+| ✨ **Clean & Modern Syntax** | With an expressive syntax inspired by Rust and C++, Júpiterlang focuses on readability and an enjoyable developer experience, reducing boilerplate code. |
+| 🤝 **Seamless C++ Interoperability** | Since the output is C++ code, you can easily integrate Júpiterlang components into any existing C++ project and leverage the vast ecosystem of C++ libraries. |
+| 🌱 **Self-Hosting Ambition** | The ultimate goal is for the `jupitercc` compiler to be written in Júpiterlang itself, proving the language's power and maturity. |
 
 ---
 
 ## 🏁 Getting Started
 
-Follow the steps below to build the `jupitercc` compiler and run your first program.
+Ready to write your first Júpiterlang program? Follow these steps to build the compiler.
 
 ### Prerequisites
 
-*   **CMake** (version 3.15 or higher)
+*   **CMake** (`>=4.0`)
 *   A **C++23 compliant compiler** (e.g., GCC 12+, Clang 16+)
 
-### Building the Compiler
+### Build Instructions
 
 1.  **Clone the repository:**
     ```bash
@@ -33,76 +43,71 @@ Follow the steps below to build the `jupitercc` compiler and run your first prog
     cd jupiterlang
     ```
 
-2.  **Create a build directory:**
+2.  **Configure and build the project:**
     ```bash
-    mkdir build
+    cmake -B build
     cd build
-    ```
-
-3.  **Configure the project with CMake:**
-    ```bash
-    cmake ..
-    ```
-
-4.  **Compile the project:**
-    ```bash
     make -j $(nproc)
     ```
-    This will generate the `jupitercc` executable inside the `build/` directory.
+    This will create the `jupitercc` executable in the `build/` directory.
 
-### Running a Program
+### Your First Program
 
-1.  From the `build/` directory, run the `jupitercc` compiler on an example file:
-    ```bash
-    ./jupitercc ../examples/hello.jupiter
+1.  **Write some Júpiterlang code** (e.g., in `examples/hello.jupiter`):
+    ```jupiter
+    # This is the syntax the current compiler handles
+    import iostream
+
+    fn main() {
+        print("Hello from Júpiterlang!");
+    }
     ```
 
-2.  This will generate a file named `a.out.cpp` in the same directory, containing the transpiled C++ code.
-
-3.  You can then compile and run the generated C++ code:
+2.  **Transpile it to C++:**
     ```bash
-    g++ -std=c++23 -o hello a.out.cpp
-    ./hello
+    ./build/jupitercc ./examples/hello.jupiter
+    ```
+    This generates a `a.out.cpp` file.
+
+3.  **Compile and run the C++ output:**
+    ```bash
+    g++ -std=c++23 -o hello a.out.cpp && ./hello
+    ```
+    **Output:**
+    ```
+    Hello from Júpiterlang!
     ```
 
 ---
 
-## 🔥 Example
+## 🗺️ Project Roadmap
 
-Here is a simple example of Júpiterlang syntax that the current compiler understands.
+Júpiterlang is in its early stages of development. Here is a high-level overview of our goals. Contributions are welcome!
 
-**`examples/hello.jupiter`**
-```jupiter
-# This syntax is what the current compiler handles
-import iostream
-
-fn main() {
-    print("Hello world");
-}
-```
-
-**Generated C++ Output (`a.out.cpp`)**
-
-```cpp
-// Code generated by jupitercc
-#include <iostream>
-
-int main() {
-    std::cout << " Hello,world! " << std::endl;
-    return 0;
-}
-```
+-   [x] Basic Lexer & Parser for simple syntax
+-   [x] `import`, `fn main`, and `print` statement transpilation
+-   [ ] **Variable Declarations:** `let x = 10;`, `let name = "Jupiter";`
+-   [ ] **Core Data Types:** `int`, `string`, `bool`, `float`
+-   [ ] **Control Flow:** `if`/`else` statements
+-   [ ] **Loops:** `for` and `while` loops
+-   [ ] **User-Defined Functions:** With parameters and return values
+-   [ ] **Smart Pointer Implementation:** Automatic generation of `std::unique_ptr` for owned types.
+-   [ ] **Structs/Classes:** User-defined aggregate types.
+-   [ ] **Self-Hosting Compiler:** The grand finale!
 
 ---
 
-## 🎯 Vision and Project Goals
+## 🤝 How to Contribute
 
-Júpiterlang was created with the following goals in mind:
+We welcome contributions of all kinds! Whether you're fixing a bug, adding a new feature, or improving documentation, your help is greatly appreciated.
 
--   **Memory Safety:** Making systems programming less error-prone by design.
--   **Performance:** Retaining the "bare-metal" speed of C++ without the overhead of a traditional garbage collector.
--   **Simplicity:** Providing a clean, enjoyable developer experience with a gentle learning curve.
--   **Self-Sufficiency:** Achieving a "self-hosted" status, where the language can compile itself, proving its maturity and capability.
+1.  **Fork** the repository.
+2.  Create a new **branch** (`git checkout -b feature/your-feature-name`).
+3.  **Commit** your changes (`git commit -m 'Add some feature'`).
+4.  **Push** to the branch (`git push origin feature/your-feature-name`).
+5.  Open a **Pull Request**.
+
+Please check the **[Issues](https://github.com/Renan2010/jupiterlang/issues)** tab to find tasks to work on.
 
 ---
 
