@@ -1,11 +1,14 @@
 <div align="center">
-  <h1>Júpiterlang</h1>
-  <p><strong>A memory-safe programming language that speaks modern C++.</strong></p>
-  
-  <p>
-    <img src="https://img.shields.io/badge/language-C%2B%2B23-blue.svg" alt="Language C++23"/>
-    <a href="https://github.com/Renan2010/jupiterlang/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License MIT"/></a>
-  </p>
+<h1>Júpiterlang</h1>
+<p><strong>A memory-safe programming language that transpiles to modern C++.</strong></p>
+<p>
+<img src="https://img.shields.io/badge/language-C%2B%2B23-blue.svg" alt="Language C++23"/>
+<a href="https://github.com/Renan2010/jupiterlang/blob/main/LICENSE">
+<img src="https://img.shields.io/github/license/Renan2010/jupiterlang?color=green" alt="License MIT"/>
+</a>
+<img src="https://img.shields.io/github/last-commit/Renan2010/jupiterlang" alt="Last Commit"/>
+<img src="https://img.shields.io/github/contributors/Renan2010/jupiterlang?color=orange" alt="Contributors"/>
+</p>
 </div>
 
 ---
@@ -13,6 +16,8 @@
 Júpiterlang is a modern systems programming language designed to combine the performance of C++ with guaranteed memory safety. It achieves this by transpiling its high-level, clean syntax directly into high-performance, readable C++23.
 
 The core principle is **safety by abstraction**: Júpiterlang automatically generates C++ code that leverages smart pointers (`std::unique_ptr`, `std::shared_ptr`), freeing the developer from manual memory management and eliminating entire classes of bugs like dangling pointers and memory leaks.
+
+---
 
 ## 🤔 Why Júpiterlang?
 
