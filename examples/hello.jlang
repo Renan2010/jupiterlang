@@ -1,0 +1,5 @@
+#import iostream
+
+fn main() int {
+    return 0;
+}
